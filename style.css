@@ -141,3 +141,55 @@ body {
         letter-spacing: 2px;
     }
 }
+.tamño {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.tol {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 60px 80px;
+    border-radius: 50px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.tol:hover {
+    border-color: #00d2ff;
+    box-shadow: 0 0 50px rgba(0, 210, 255, 0.2);
+    transform: translateY(-10px);
+}
+
+.tol span {
+    color: #888;
+    font-size: 0.8rem;
+    letter-spacing: 5px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 600px) {
+   
+
+    /* Ajustamos la Card para que no sea más ancha que el teléfono */
+    .tol {
+        width: 85%; /* Forzamos a que respete el ancho del cel */
+        padding: 30px 15px; /* Reducimos el padding exagerado de 80px a algo real para móvil */
+        border-radius: 30px;
+    }
+
+    /* Reducimos la fuente de la ecuación para que no se salga de la Card */
+    .tamño {
+        font-size: 0.5rem; 
+    }
+
+    /* El texto pequeño arriba de la función */
+    .tol span {
+        font-size: 0.6rem;
+        letter-spacing: 2px;
+    }
+}
