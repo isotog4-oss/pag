@@ -87,7 +87,7 @@ body {
 }
 
 #img{
-    width: 5vw;
+    width: 2vw;
     height: auto;
     object-fit: cover;
 }
@@ -141,55 +141,94 @@ body {
         letter-spacing: 2px;
     }
 }
-.tamño {
-    font-size: 1.5rem;
-    color: #fff;
+/* --- NUEVO CONTENEDOR PARA APILAR BLOQUES (TEORÍA, VIDEOS, ETC) --- */
+.contenedor-vertical {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; /* Espacio entre cada tarjeta 'tol' */
+    width: 100%;
+    height: 100%;
+    overflow-y: auto; /* IMPORTANTE: Permite bajar para ver los bloques de abajo */
+    padding: 100px 20px; /* Evita que el Nav de arriba tape el contenido */
+    scrollbar-width: none; /* Oculta scrollbar en Firefox */
 }
 
+.contenedor-vertical::-webkit-scrollbar {
+    display: none; /* Oculta scrollbar en Chrome/Safari */
+}
+
+/* --- REAJUSTE DE TU CLASE TOL --- */
 .tol {
+    display: flex;
+    flex-direction: column; /* Alinea título, texto y video hacia abajo */
+    align-items: center;
+    gap: 20px;
+    width: 90%;
+    max-width: 800px;
+    flex-shrink: 0; /* Evita que los cuadros se aplasten entre ellos */
+    
+    /* Mantengo tus estilos visuales */
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 60px 80px;
-    border-radius: 50px;
+    padding: 50px;
+    border-radius: 40px;
     text-align: center;
-    cursor: pointer;
     transition: all 0.4s ease;
 }
 
-.tol:hover {
-    border-color: #00d2ff;
-    box-shadow: 0 0 50px rgba(0, 210, 255, 0.2);
-    transform: translateY(-10px);
+/* --- REAJUSTE DE TU CLASE TAMÑO --- */
+.tamño {
+    width: 100%;
+    font-size: 1.2rem;
+    color: #fff;
 }
 
-.tol span {
-    color: #888;
-    font-size: 0.8rem;
-    letter-spacing: 5px;
-    display: block;
-    margin-bottom: 20px;
+/* Asegura que cualquier video dentro de tamño se vea bien */
+.tamño video {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    margin-top: 15px;
 }
 
+/* --- AJUSTES PARA MÓVIL (SÓLO PARA ESTAS CLASES) --- */
 @media screen and (max-width: 600px) {
-   
+    .contenedor-vertical {
+        padding-top: 80px; /* Menos espacio arriba en celular */
+        gap: 25px;
+    }
 
-    /* Ajustamos la Card para que no sea más ancha que el teléfono */
     .tol {
-        width: 85%; /* Forzamos a que respete el ancho del cel */
-        padding: 30px 15px; /* Reducimos el padding exagerado de 80px a algo real para móvil */
-        border-radius: 30px;
+        width: 95%;
+        padding: 30px 20px;
+        border-radius: 25px;
     }
 
-    /* Reducimos la fuente de la ecuación para que no se salga de la Card */
     .tamño {
-        font-size: 0.5rem; 
+        font-size: 0.95rem; /* Tamaño de lectura cómodo en móvil */
     }
+}
 
-    /* El texto pequeño arriba de la función */
-    .tol span {
-        font-size: 0.6rem;
-        letter-spacing: 2px;
+.tamño video {
+    /* Control de tamaño */
+    width: 100%;           /* Se adapta al ancho de la tarjeta... */
+    max-width: 500px;      /* ...pero nunca será más ancho de 500px */
+    height: auto;          /* Mantiene la proporción original */
+    
+    /* Estética */
+    display: block;
+    margin: 20px auto;     /* Lo separa del texto y lo centra */
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Ajuste para que en celulares muy pequeños no se vea apretado */
+@media screen and (max-width: 600px) {
+    .tamño video {
+        max-width: 280px;  /* Más pequeño en teléfonos */
     }
 }
