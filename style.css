@@ -87,28 +87,26 @@ body {
 }
 
 #img{
-    width: 2vw;
+    width: 5vw;
+    min-width: 45px;
     height: auto;
     object-fit: cover;
 }
 
-.left-img {
-    position: absolute;
-    bottom: 50%;
-    left: 1%;
+.img-fija {
+    position: fixed;
+    top: 5mm;
+    left: 5mm;
+    z-index: 1000;
+  
 }
 
-.center-img {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.right-img {
-    position: absolute;
-    bottom: 3%;
-    right: 3%;
+@media screen and (max-width: 600px) {
+    .img-fija {
+        top: 3mm;    /* Un poco más pegada en móviles para ganar espacio */
+        right: 3mm;
+        width: 12vw; 
+    }
 }
 
 /* --- AJUSTES SOLO PARA EL CONTENIDO QUE SE ROMPE --- */
@@ -212,23 +210,3 @@ body {
     }
 }
 
-.tamño video {
-    /* Control de tamaño */
-    width: 100%;           /* Se adapta al ancho de la tarjeta... */
-    max-width: 500px;      /* ...pero nunca será más ancho de 500px */
-    height: auto;          /* Mantiene la proporción original */
-    
-    /* Estética */
-    display: block;
-    margin: 20px auto;     /* Lo separa del texto y lo centra */
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    border: 2px solid rgba(255, 255, 255, 0.1);
-}
-
-/* Ajuste para que en celulares muy pequeños no se vea apretado */
-@media screen and (max-width: 600px) {
-    .tamño video {
-        max-width: 280px;  /* Más pequeño en teléfonos */
-    }
-}
